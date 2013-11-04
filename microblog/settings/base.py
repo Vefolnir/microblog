@@ -6,11 +6,11 @@ here = lambda * x: os.path.join(os.path.abspath(os.path.dirname(__file__)), *x)
 PROJECT_ROOT = here("..")
 root = lambda * x: os.path.join(os.path.abspath(PROJECT_ROOT), *x)
 
-DEBUG = False
-TEMPLATE_DEBUG = DEBUG
+# DEBUG = False
+# TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    ("Vefolnir", "erion.jonatan@gmail.com")
+    ('Vefolnir', "erion.jonatan@gmail.com")
 )
 
 MANAGERS = ADMINS
@@ -44,7 +44,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = root("..", "uploads")
+MEDIA_ROOT = root('..', 'uploads')
 
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
@@ -56,7 +56,7 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = root("..", "static")
+STATIC_ROOT = root('..', 'static')
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -64,7 +64,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    root("assets"),
+    root('assets'),
 )
 
 # List of finder classes that know how to find static files in
@@ -101,7 +101,7 @@ ROOT_URLCONF = 'microblog.urls'
 WSGI_APPLICATION = 'microblog.wsgi.application'
 
 TEMPLATE_DIRS = (
-    root("templates"),
+    root('templates'),
 )
 
 
@@ -118,9 +118,13 @@ DJANGO_APPS = (
     # 'django.contrib.admindocs',
 )
 
-THIRD_PARTY_APPS = ()
+THIRD_PARTY_APPS = (
+    'south',
+)
 
-LOCAL_APPS = ()
+LOCAL_APPS = (
+    'blog',
+)
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
